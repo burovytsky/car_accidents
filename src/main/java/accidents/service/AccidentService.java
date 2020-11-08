@@ -21,4 +21,8 @@ public class AccidentService {
     public void createAccident(Accident accident) {
         accidentMem.createAccident(accident);
     }
+
+    public Accident findAccidentById(int id) {
+        return accidentMem.findById(id);
+    }
 }

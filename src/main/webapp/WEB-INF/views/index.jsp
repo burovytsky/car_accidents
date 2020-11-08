@@ -39,6 +39,7 @@
                         <th scope="col">Name</th>
                         <th scope="col">Text</th>
                         <th scope="col">Address</th>
+                        <th scope="col">Edit</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -56,6 +57,10 @@
                             <td>
                                 <c:out value="${accident.address}"/>
                             </td>
+                            <td>
+                                <a href="<c:url value='/edit?id=${accident.id}'/>">
+                                    <i class="fa fa-edit mr-3"></i>
+                                </a></td>
                         </tr>
                     </c:forEach>
                     </tbody>

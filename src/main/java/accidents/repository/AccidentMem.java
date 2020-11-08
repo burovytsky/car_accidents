@@ -15,9 +15,9 @@ public class AccidentMem {
 
 
     public AccidentMem() {
-        Accident accident1 = new Accident(0, "Accident1", "Description1", "some street");
-        Accident accident2 = new Accident(1, "Accident2", "Description2", "some street");
-        Accident accident3 = new Accident(2, "Accident3", "Description3", "some street");
+        Accident accident1 = new Accident(1, "Accident1", "Description1", "some street");
+        Accident accident2 = new Accident(2, "Accident2", "Description2", "some street");
+        Accident accident3 = new Accident(3, "Accident3", "Description3", "some street");
         accidents.put(accident1.getId(), accident1);
         accidents.put(accident2.getId(), accident2);
         accidents.put(accident3.getId(), accident3);
@@ -28,7 +28,15 @@ public class AccidentMem {
     }
 
     public void createAccident(Accident accident) {
-        accident.setId(ACCIDENT_ID.incrementAndGet());
-        accidents.put(accident.getId(), accident);
+        if (accidents.containsKey(accident.getId())) {
+            accidents.replace(accident.getId(), accident);
+        } else {
+            accident.setId(ACCIDENT_ID.incrementAndGet());
+            accidents.put(accident.getId(), accident);
+        }
+    }
+
+    public Accident findById(int id) {
+        return accidents.get(id);
     }
 }
