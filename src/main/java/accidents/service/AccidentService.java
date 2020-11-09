@@ -28,7 +28,8 @@ public class AccidentService {
         return accidentMem.getAll();
     }
 
-    public void createAccident(Accident accident) {
+    public void createAccident(Accident accident, String[] ids) {
+        accident.setRuleSet(getSelectedRules(ids));
         accidentMem.create(accident);
     }
 
