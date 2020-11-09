@@ -2,6 +2,7 @@ package accidents.controller;
 
 import accidents.model.Accident;
 import accidents.model.Rule;
+import accidents.service.AccidentJdbcService;
 import accidents.service.AccidentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,11 +33,7 @@ public class AccidentController {
     @PostMapping("/save")
     public String save(@ModelAttribute Accident accident, HttpServletRequest request) {
         String[] ids = request.getParameterValues("rIds");
-        Set<Rule> rules = new HashSet<>();
-        for (String id : ids) {
-            rules.add(service.findRuleById(Integer.parseInt(id)));
-        }
-        accident.setRuleSet(rules);
+        accident.setRuleSet(service.getSelectedRules(ids));
         service.createAccident(accident);
         return "redirect:/";
     }

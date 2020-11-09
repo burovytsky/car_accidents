@@ -9,6 +9,8 @@ import accidents.repository.TypeMem;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Service
 public class AccidentService {
@@ -56,5 +58,13 @@ public class AccidentService {
 
     public Rule findRuleById(int id) {
         return ruleMem.findById(id);
+    }
+
+    public Set<Rule> getSelectedRules(String[] ids) {
+        Set<Rule> rules = new HashSet<>();
+        for (String id : ids) {
+            rules.add(ruleMem.findById(Integer.parseInt(id)));
+        }
+        return rules;
     }
 }
