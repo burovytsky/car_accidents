@@ -40,6 +40,7 @@
                         <th scope="col">Text</th>
                         <th scope="col">Address</th>
                         <th scope="col">Type</th>
+                        <th scope="col">Rules</th>
                         <th scope="col">Edit</th>
                     </tr>
                     </thead>
@@ -57,6 +58,11 @@
                             </td>
                             <td>
                                 <c:out value="${accident.address}"/>
+                            </td>
+                            <td>
+                                <c:forEach var="rule" items="${accident.ruleSet}">
+                                    <c:out value="${rule.name} "/>
+                                </c:forEach>
                             </td>
                             <td>
                                 <c:forEach var="type" items="${types}">

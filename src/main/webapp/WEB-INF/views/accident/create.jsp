@@ -33,7 +33,7 @@
     <div class="row">
         <div class="card" style="width: 100%">
             <div class="card-header">
-                Edit incident
+                Create incident
             </div>
             <div class="card-body">
                 <form action="<c:url value='/save'/>" method='POST'>
@@ -48,6 +48,12 @@
                         <select name="type.id" class="form-control" id="types">
                             <c:forEach var="type" items="${accidentTypes}">
                                 <option value="${type.id}">${type.name}</option>
+                            </c:forEach>
+                        </select>
+                        <label for="rules"></label>
+                        <select name="rIds" class="form-control" multiple id="rules">
+                            <c:forEach var="rule" items="${rules}">
+                                <option value="${rule.id}">${rule.name}</option>
                             </c:forEach>
                         </select>
                     </div>

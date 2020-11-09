@@ -46,9 +46,15 @@
                         <label for="address">Address</label>
                         <input type="text" class="form-control" name="address" id="address" value="${accident.address}">
                         <label for="types">Type</label>
-                        <select name="type.id" class="form-control" id="types">
+                        <select name="type.id" class="form-control " id="types">
                             <c:forEach var="type" items="${accidentTypes}">
                                 <option value="${type.id}">${type.name}</option>
+                            </c:forEach>
+                        </select>
+                        <label for="rules"></label>
+                        <select name="rIds" class="form-control" multiple id="rules">
+                            <c:forEach var="rule" items="${rules}">
+                                <option value="${rule.id}">${rule.name}</option>
                             </c:forEach>
                         </select>
                     </div>

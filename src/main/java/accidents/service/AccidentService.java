@@ -2,7 +2,9 @@ package accidents.service;
 
 import accidents.model.Accident;
 import accidents.model.AccidentType;
+import accidents.model.Rule;
 import accidents.repository.AccidentMem;
+import accidents.repository.RuleMem;
 import accidents.repository.TypeMem;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +14,12 @@ import java.util.Collection;
 public class AccidentService {
     private final AccidentMem accidentMem;
     private final TypeMem typeMem;
+    private final RuleMem ruleMem;
 
     public AccidentService() {
         accidentMem = new AccidentMem();
         typeMem = new TypeMem();
+        ruleMem = new RuleMem();
     }
 
     public Collection<Accident> getAccidents() {
@@ -40,5 +44,17 @@ public class AccidentService {
 
     public void createAccidentType(AccidentType accidentType) {
         typeMem.create(accidentType);
+    }
+
+    public Collection<Rule> getRules() {
+        return ruleMem.getAll();
+    }
+
+    public void createRule(Rule rule) {
+        ruleMem.create(rule);
+    }
+
+    public Rule findRuleById(int id) {
+        return ruleMem.findById(id);
     }
 }
