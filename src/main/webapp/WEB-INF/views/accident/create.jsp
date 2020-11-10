@@ -50,7 +50,7 @@
                                 <option value="${type.id}">${type.name}</option>
                             </c:forEach>
                         </select>
-                        <label for="rules"></label>
+                        <label for="rules">Rules</label>
                         <select name="rIds" class="form-control" multiple id="rules">
                             <c:forEach var="rule" items="${rules}">
                                 <option value="${rule.id}">${rule.name}</option>

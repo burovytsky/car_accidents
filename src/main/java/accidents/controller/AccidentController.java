@@ -17,9 +17,9 @@ import java.util.Set;
 
 @Controller
 public class AccidentController {
-    private final AccidentService service;
+    private final AccidentJdbcService service;
 
-    public AccidentController(AccidentService service) {
+    public AccidentController(AccidentJdbcService service) {
         this.service = service;
     }
 

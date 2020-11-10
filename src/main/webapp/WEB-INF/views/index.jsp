@@ -39,8 +39,8 @@
                         <th scope="col">Name</th>
                         <th scope="col">Text</th>
                         <th scope="col">Address</th>
-                        <th scope="col">Type</th>
                         <th scope="col">Rules</th>
+                        <th scope="col">Type</th>
                         <th scope="col">Edit</th>
                     </tr>
                     </thead>
