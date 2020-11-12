@@ -2,6 +2,7 @@ package accidents.repository;
 
 import accidents.model.AccidentType;
 import accidents.model.Rule;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -76,19 +77,23 @@ public class AccidentJdbcTemplate {
     }
 
     public Accident findById(int id) {
-        return jdbc.queryForObject(
-                "select * from accidents where id = ?",
-                (resultSet, row) -> {
-                    Accident newAccident = new Accident();
-                    newAccident.setId(resultSet.getInt("id"));
-                    newAccident.setName(resultSet.getString("name"));
-                    newAccident.setText(resultSet.getString("description"));
-                    newAccident.setAddress(resultSet.getString("address"));
-                    newAccident.setType(getAccidentType(resultSet.getInt("type_id")));
-                    newAccident.setRuleSet(getSelectedRules(id));
-                    return newAccident;
-                },
-                id);
+        try {
+            return jdbc.queryForObject(
+                    "select * from accidents where id = ?",
+                    (resultSet, row) -> {
+                        Accident newAccident = new Accident();
+                        newAccident.setId(resultSet.getInt("id"));
+                        newAccident.setName(resultSet.getString("name"));
+                        newAccident.setText(resultSet.getString("description"));
+                        newAccident.setAddress(resultSet.getString("address"));
+                        newAccident.setType(getAccidentType(resultSet.getInt("type_id")));
+                        newAccident.setRuleSet(getSelectedRules(id));
+                        return newAccident;
+                    },
+                    id);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 
     private AccidentType getAccidentType(int id) {
