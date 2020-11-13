@@ -1,16 +1,16 @@
 package accidents.controller;
 
 
-import accidents.service.AccidentJdbcService;
+import accidents.service.AccidentHibernateService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class IndexController {
-    private final AccidentJdbcService service;
+    private final AccidentHibernateService service;
 
-    public IndexController(AccidentJdbcService service) {
+    public IndexController(AccidentHibernateService service) {
         this.service = service;
     }
     @GetMapping("/")

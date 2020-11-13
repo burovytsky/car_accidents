@@ -1,9 +1,7 @@
 package accidents.controller;
 
 import accidents.model.Accident;
-import accidents.model.Rule;
-import accidents.service.AccidentJdbcService;
-import accidents.service.AccidentService;
+import accidents.service.AccidentHibernateService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,14 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashSet;
-import java.util.Set;
 
 @Controller
 public class AccidentController {
-    private final AccidentJdbcService service;
+    private final AccidentHibernateService service;
 
-    public AccidentController(AccidentJdbcService service) {
+    public AccidentController(AccidentHibernateService service) {
         this.service = service;
     }
 

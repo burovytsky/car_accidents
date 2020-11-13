@@ -40,8 +40,8 @@
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" name="name" id="name">
-                        <label for="text">Text</label>
-                        <input type="text" class="form-control" name="text" id="text">
+                        <label for="description">Text</label>
+                        <input type="text" class="form-control" name="description" id="description">
                         <label for="address">Address</label>
                         <input type="text" class="form-control" name="address" id="address">
                         <label for="types">Type</label>

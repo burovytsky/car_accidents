@@ -1,24 +1,36 @@
 package accidents.model;
 
 
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@Entity
+@Table(name = "accidents")
 public class Accident {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String text;
+    private String description;
     private String address;
+    @ManyToOne
+    @JoinColumn(name = "type_id")
     private AccidentType type;
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinTable(name = "accident_rules", joinColumns = {
+    @JoinColumn(name = "accident_id")},
+            inverseJoinColumns = {@JoinColumn(name = "rule_id")})
     private Set<Rule> ruleSet;
 
     public Accident() {
     }
 
-    public Accident(int id, String name, String text, String address, AccidentType type, Set<Rule> ruleSet) {
+    public Accident(int id, String name, String description, String address, AccidentType type, Set<Rule> ruleSet) {
         this.id = id;
         this.name = name;
-        this.text = text;
+        this.description = description;
         this.address = address;
         this.type = type;
         this.ruleSet = ruleSet;
@@ -40,12 +52,12 @@ public class Accident {
         this.name = name;
     }
 
-    public String getText() {
-        return text;
+    public String getDescription() {
+        return description;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getAddress() {
@@ -83,12 +95,12 @@ public class Accident {
         Accident accident = (Accident) o;
         return id == accident.id
                 && Objects.equals(name, accident.name)
-                && Objects.equals(text, accident.text)
+                && Objects.equals(description, accident.description)
                 && Objects.equals(address, accident.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, text, address);
+        return Objects.hash(id, name, description, address);
     }
 }

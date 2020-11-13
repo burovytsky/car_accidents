@@ -29,7 +29,7 @@ public class AccidentJdbcTemplate {
                     Accident accident = new Accident();
                     accident.setId(resultSet.getInt("id"));
                     accident.setName(resultSet.getString("name"));
-                    accident.setText(resultSet.getString("description"));
+                    accident.setDescription(resultSet.getString("description"));
                     accident.setAddress(resultSet.getString("address"));
                     accident.setType(getAccidentType(resultSet.getInt("type_id")));
                     accident.setRuleSet(getSelectedRules(resultSet.getInt("id")));
@@ -48,7 +48,7 @@ public class AccidentJdbcTemplate {
     private void updateAccident(Accident accident) {
         String updateAccident = ("UPDATE accidents SET name = (?), description= (?), address = (?), type_id = (?) where id = (?)");
         jdbc.update(updateAccident,
-                accident.getName(), accident.getText(), accident.getAddress(), accident.getType().getId(), accident.getId());
+                accident.getName(), accident.getDescription(), accident.getAddress(), accident.getType().getId(), accident.getId());
         jdbc.update("DELETE from accident_rules  where accident_id = (?)", accident.getId());
         String addAccidentRule = "INSERT INTO accident_rules (accident_id, rule_id) VALUES (?, ?)";
         for (Rule rule : accident.getRuleSet()) {
@@ -63,7 +63,7 @@ public class AccidentJdbcTemplate {
                     PreparedStatement ps =
                             connection.prepareStatement(createAccident, new String[]{"id"});
                     ps.setString(1, accident.getName());
-                    ps.setString(2, accident.getText());
+                    ps.setString(2, accident.getDescription());
                     ps.setString(3, accident.getAddress());
                     ps.setInt(4, accident.getType().getId());
                     return ps;
@@ -84,7 +84,7 @@ public class AccidentJdbcTemplate {
                         Accident newAccident = new Accident();
                         newAccident.setId(resultSet.getInt("id"));
                         newAccident.setName(resultSet.getString("name"));
-                        newAccident.setText(resultSet.getString("description"));
+                        newAccident.setDescription(resultSet.getString("description"));
                         newAccident.setAddress(resultSet.getString("address"));
                         newAccident.setType(getAccidentType(resultSet.getInt("type_id")));
                         newAccident.setRuleSet(getSelectedRules(id));

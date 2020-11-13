@@ -41,8 +41,8 @@
                         <input type="hidden" class="form-control" name="id" id="id" value="${accident.id}">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" name="name" id="name" value="${accident.name}">
-                        <label for="text">Text</label>
-                        <input type="text" class="form-control" name="text" id="text" value="${accident.text}">
+                        <label for="description">Text</label>
+                        <input type="text" class="form-control" name="description" id="description" value="${accident.description}">
                         <label for="address">Address</label>
                         <input type="text" class="form-control" name="address" id="address" value="${accident.address}">
                         <label for="types">Type</label>
