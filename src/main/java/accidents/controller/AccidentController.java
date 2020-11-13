@@ -1,6 +1,8 @@
 package accidents.controller;
 
 import accidents.model.Accident;
+import accidents.repository.AccidentRepository;
+import accidents.service.AccidentCrudService;
 import accidents.service.AccidentHibernateService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,15 +15,15 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class AccidentController {
-    private final AccidentHibernateService service;
+    private final AccidentCrudService service;
 
-    public AccidentController(AccidentHibernateService service) {
+    public AccidentController(AccidentCrudService service) {
         this.service = service;
     }
 
     @GetMapping("/create")
     public String create(Model model) {
-        model.addAttribute("accidentTypes", service.getAccidentTypes());
+        model.addAttribute("accidentTypes", service.getTypes());
         model.addAttribute("rules", service.getRules());
         return "accident/create";
     }
@@ -34,7 +36,7 @@ public class AccidentController {
 
     @GetMapping("/edit")
     public String update(@RequestParam("id") int id, Model model) {
-        model.addAttribute("accidentTypes", service.getAccidentTypes());
+        model.addAttribute("accidentTypes", service.getTypes());
         model.addAttribute("accident", service.findAccidentById(id));
         model.addAttribute("rules", service.getRules());
         return "accident/edit";
