@@ -16,7 +16,8 @@ CREATE TABLE accidents
     name    varchar(2000),
     description    text,
     address varchar(2000),
-    type_id int
+    type_id int,
+    foreign key (type_id) references types(id)
 );
 
 DROP TABLE IF EXISTS accident_rules;

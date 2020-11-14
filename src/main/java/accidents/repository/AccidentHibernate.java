@@ -1,9 +1,7 @@
 package accidents.repository;
 
-import accidents.model.Rule;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.slf4j.Logger;
 import org.springframework.stereotype.Repository;
 import accidents.model.Accident;
 

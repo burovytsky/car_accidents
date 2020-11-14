@@ -2,7 +2,6 @@ package accidents.model;
 
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -18,7 +17,7 @@ public class Accident {
     @ManyToOne
     @JoinColumn(name = "type_id")
     private AccidentType type;
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "accident_rules", joinColumns = {
     @JoinColumn(name = "accident_id")},
             inverseJoinColumns = {@JoinColumn(name = "rule_id")})
