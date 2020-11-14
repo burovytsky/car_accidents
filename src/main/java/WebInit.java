@@ -1,7 +1,4 @@
-import accidents.config.DataConfig;
-import accidents.config.HbmConfig;
-import accidents.config.JdbcConfig;
-import accidents.config.WebConfig;
+import accidents.config.*;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
@@ -14,7 +11,7 @@ import javax.servlet.ServletRegistration;
 public class WebInit implements WebApplicationInitializer {
     public void onStartup(ServletContext servletCxt) {
         AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
-        ac.register(WebConfig.class, DataConfig.class);
+        ac.register(WebConfig.class, DataConfig.class, SecurityConfig.class);
         ac.refresh();
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
         filter.setEncoding("UTF-8");
