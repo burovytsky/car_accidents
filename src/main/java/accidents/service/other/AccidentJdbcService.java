@@ -1,9 +1,11 @@
-package accidents.service;
+package accidents.service.other;
 
 import accidents.model.Accident;
 import accidents.model.AccidentType;
 import accidents.model.Rule;
-import accidents.repository.*;
+import accidents.repository.other.AccidentJdbcTemplate;
+import accidents.repository.other.RuleJdbcTemplate;
+import accidents.repository.other.TypeJdbcTemplate;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 

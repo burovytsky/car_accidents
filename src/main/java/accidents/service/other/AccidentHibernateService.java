@@ -1,11 +1,11 @@
-package accidents.service;
+package accidents.service.other;
 
 import accidents.model.Accident;
 import accidents.model.AccidentType;
 import accidents.model.Rule;
-import accidents.repository.AccidentHibernate;
-import accidents.repository.RuleHibernate;
-import accidents.repository.TypeHibernate;
+import accidents.repository.other.AccidentHibernate;
+import accidents.repository.other.RuleHibernate;
+import accidents.repository.other.TypeHibernate;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
 

@@ -1,11 +1,11 @@
-package accidents.service;
+package accidents.service.other;
 
 import accidents.model.Accident;
 import accidents.model.AccidentType;
 import accidents.model.Rule;
-import accidents.repository.AccidentMem;
-import accidents.repository.RuleMem;
-import accidents.repository.TypeMem;
+import accidents.repository.other.AccidentMem;
+import accidents.repository.other.RuleMem;
+import accidents.repository.other.TypeMem;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;

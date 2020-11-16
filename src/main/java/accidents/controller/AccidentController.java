@@ -1,9 +1,7 @@
 package accidents.controller;
 
 import accidents.model.Accident;
-import accidents.repository.AccidentRepository;
 import accidents.service.AccidentCrudService;
-import accidents.service.AccidentHibernateService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

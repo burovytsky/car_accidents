@@ -1,4 +1,4 @@
-package accidents.repository;
+package accidents.repository.other;
 
 import accidents.model.Rule;
 
