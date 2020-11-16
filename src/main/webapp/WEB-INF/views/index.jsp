@@ -29,7 +29,11 @@
     <div class="row">
         <div class="card" style="width: 100%">
             <div class="card-header">
-                Accidents
+                <div class="row">
+                    <div class="col-md-6">Accidents
+                    </div>
+                    <div class="col-md-6 text-right text-info">Login as ${user.username}</div>
+                </div>
             </div>
             <div class="card-body">
                 <table class="table">
@@ -79,7 +83,7 @@
                     </c:forEach>
                     </tbody>
                 </table>
-                <a href="<c:url value='/create'/>">Добавить инцидент</a>
+                <a class="btn btn-primary" href="<c:url value='/create'/>" role="button">Добавить инцидент</a>
             </div>
         </div>
     </div>
