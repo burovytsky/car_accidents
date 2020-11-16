@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: cns
-  Date: 13.11.2020
-  Time: 21:29
+  Date: 16.11.2020
+  Time: 10:04
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -26,33 +26,27 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
 
-    <title>Log in</title>
+    <title>Registration</title>
 </head>
 <body>
 <div class="container pt-3">
 
     <div class="row">
         <div class="card" style="width: 100%">
-            <c:if test="${not empty errorMessage}">
-                <div class="alert alert-danger" role="alert">
-                        ${errorMessage}
-                </div>
-            </c:if>
+
             <div class="card-header">
-                Authorization
+                Registration
             </div>
-            <form name='login' action="<c:url value='/login'/>" method='POST'>
+            <form name='registration' action="<c:url value='/reg'/>" method='POST'>
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" class="form-control" name="username">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" class="form-control" name="password">
+                    <input type="text" id="password" class="form-control" name="password">
                 </div>
-                <a class="btn btn-secondary" href="<c:url value='/reg'/>" role="button">Registration</a>
-                <button type="submit" class="btn btn-primary">Log in</button>
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                <button type="submit" class="btn btn-primary">Registration</button>
             </form>
         </div>
     </div>
