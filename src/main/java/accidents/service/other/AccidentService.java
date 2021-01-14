@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-@Service
+//@Service
 public class AccidentService {
     private final AccidentMem accidentMem;
     private final TypeMem typeMem;

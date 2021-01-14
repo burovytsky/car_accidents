@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-@Service
+
 public class AccidentHibernateService {
     private final AccidentHibernate accidentHibernate;
     private final TypeHibernate typeHibernate;

@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-@Service
+//@Service
 public class AccidentJdbcService {
     private final AccidentJdbcTemplate accidentJdbcTemplate;
     private final TypeJdbcTemplate typeJdbcTemplate;
